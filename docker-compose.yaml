@@ -1,0 +1,36 @@
+---
+version: '3.7'
+services:
+  mysql_db:
+    image: mysql:8
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=qwe123rty
+      - MYSQL_DATABASE=webdb
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=qwe321rty
+  maven_custom:
+    build: 
+      context: ./maven_custom
+      dockerfile: Dockerfile
+    volumes:
+      - data2:/tmp/target/
+    depends_on:
+      - mysql_db
+  tomcat:
+    image: tomcat:9.0.71-jdk11-temurin-focal
+    volumes: 
+       - type: volume
+         source: data2
+         target: /usr/local/tomcat/webapps
+         volume:
+           nocopy: true
+    ports:
+      - 8080:8080
+    depends_on:
+      - maven_custom
+      - mysql_db
+volumes:
+  data2:
