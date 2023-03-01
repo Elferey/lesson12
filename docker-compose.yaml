@@ -23,7 +23,7 @@ services:
     depends_on:
       - mysql_db
     networks:
-      - db_net:
+      db_net:
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
@@ -38,7 +38,7 @@ services:
       - maven_custom
       - mysql_db
     networks:
-      - db_net:
+      db_net:
 volumes:
   data2:
 
