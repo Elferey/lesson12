@@ -11,9 +11,9 @@ services:
       - MYSQL_DATABASE=dd
       - MYSQL_USER=acp4pogynvaeidfj
       - MYSQL_PASSWORD=jc31d2qyy7h9jv5jn1u9uosjksxzaizw
-    networks:
-      db_net:
-        ipv4_address: 172.27.0.2
+#    networks:
+#      db_net:
+#        ipv4_address: 172.27.0.2
   maven_custom:
     build: 
       context: ./maven_custom
@@ -22,8 +22,8 @@ services:
       - data2:/tmp/target/
     depends_on:
       - mysql_db
-    networks:
-      db_net:
+#    networks:
+#      db_net:
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
@@ -37,14 +37,14 @@ services:
     depends_on:
       - maven_custom
       - mysql_db
-    networks:
-      db_net:
+#    networks:
+#      db_net:
 volumes:
   data2:
 
-networks:
-  db_net:
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.27.0.0/16
+#networks:
+#  db_net:
+#    ipam:
+#      driver: default
+#      config:
+#        - subnet: 172.27.0.0/16
