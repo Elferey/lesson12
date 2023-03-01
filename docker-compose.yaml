@@ -24,7 +24,7 @@ services:
     volumes: 
        - type: volume
          source: data2
-         target: /usr/local/tomcat/webapps
+         target: /usr/local/tomcat/webapps/ROOT
          volume:
            nocopy: true
     ports:
