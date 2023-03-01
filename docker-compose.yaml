@@ -11,6 +11,9 @@ services:
       - MYSQL_DATABASE=dd
       - MYSQL_USER=acp4pogynvaeidfj
       - MYSQL_PASSWORD=jc31d2qyy7h9jv5jn1u9uosjksxzaizw
+    networks:
+      - network:
+        ipv4_address: 172.27.0.2
   maven_custom:
     build: 
       context: ./maven_custom
@@ -34,3 +37,11 @@ services:
       - mysql_db
 volumes:
   data2:
+
+networks:
+  network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.27.0.0
+          gateway: 172.27.0.1
