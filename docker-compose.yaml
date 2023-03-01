@@ -5,12 +5,12 @@ services:
     image: mysql:8
     restart: always
     ports:
-      - 3306:3306
+      - 8514:8514
     environment:
       - MYSQL_ROOT_PASSWORD=qwe123rty
-      - MYSQL_DATABASE=webdb
-      - MYSQL_USER=dbuser
-      - MYSQL_PASSWORD=qwe321rty
+      - MYSQL_DATABASE=dd
+      - MYSQL_USER=acp4pogynvaeidfj
+      - MYSQL_PASSWORD=jc31d2qyy7h9jv5jn1u9uosjksxzaizw
   maven_custom:
     build: 
       context: ./maven_custom
