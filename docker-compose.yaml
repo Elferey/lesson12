@@ -13,7 +13,7 @@ services:
       - MYSQL_PASSWORD=jc31d2qyy7h9jv5jn1u9uosjksxzaizw
     networks:
       - db_net:
-        ipv4_address: 172.27.0.2
+        ipv4_address: '172.27.0.2'
   maven_custom:
     build: 
       context: ./maven_custom
@@ -23,7 +23,7 @@ services:
     depends_on:
       - mysql_db
     networks:
-      - default:
+      - db_net:
   tomcat:
     image: tomcat:9.0.71-jdk11-temurin-focal
     volumes: 
@@ -38,7 +38,7 @@ services:
       - maven_custom
       - mysql_db
     networks:
-      - default:
+      - db_net:
 volumes:
   data2:
 
