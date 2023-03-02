@@ -31,7 +31,7 @@ services:
            nocopy: true
        - type: volume
          source: data2
-         target: /usr/local/tomcat/ROOT/
+         target: /usr/local/tomcat/ROOT/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT
     ports:
       - 8080:8080
     depends_on:
