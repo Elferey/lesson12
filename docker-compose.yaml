@@ -22,7 +22,7 @@ services:
       - mysql_db
 
   tomcat:
-    image: amazoncorretto:8-al2-jdk
+    image: tomcat:7.0-jdk8-slim
     volumes: 
        - type: volume
          source: data2
