@@ -30,7 +30,7 @@ services:
          volume:
            nocopy: true
        - type: volume
-         source: data2/App42PaaS-Java-MySQL-Sample-0.0.1-SNAPSHOT
+         source: data2
          target: /usr/local/tomcat/ROOT/
     ports:
       - 8080:8080
