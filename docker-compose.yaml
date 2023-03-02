@@ -2,7 +2,7 @@
 version: '3.7'
 services:
   mysql_db:
-    image: mysql:8
+    image: debian:buster-slim
     restart: always
     ports:
       - 3306:3306
@@ -22,7 +22,7 @@ services:
       - mysql_db
 
   tomcat:
-    image: tomcat:9.0.71-jdk11-temurin-focal
+    image: amazoncorretto:8-al2-jdk
     volumes: 
        - type: volume
          source: data2
